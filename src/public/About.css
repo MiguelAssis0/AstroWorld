@@ -1,0 +1,33 @@
+.content{
+    background-image: url(../assets/space.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.about-me{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    width: 80%;
+    margin-left: 10%;
+    background-color: white !important;
+    min-height: 100vh;
+
+}
+
+.about-me h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-me p{
+    text-align: justify;
+    font-size: 20px;
+}
+
+.about-me h2{
+    font-size: 25px;
+    margin: 25px 0 10px 0;
+}

@@ -1,4 +1,5 @@
 import Header from './Header'
+import Footer from './Footer';
 import "../public/Header.css";
 import "../public/Init.css";
 
@@ -61,6 +62,7 @@ export default function Init() {
                     
                 </section>
             </main>
+            <Footer />
         </>
     )
 
