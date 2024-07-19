@@ -11,9 +11,9 @@ export default function Header() {
                     <li><a href="/contact">Contato</a></li>
                 </ul>
             </nav>
-            <div className="login">
-                <a href="#">Login</a>
-                <a href="#">Cadastrar</a>
+            <div className="register">
+                <a href="/login">Login</a>
+                <a href="/cadaster">Cadastrar</a>
             </div>
         </header>
     )

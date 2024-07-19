@@ -35,13 +35,13 @@ nav ul li a:hover{
     color: #ac00ca;
 }
 
-.login{
+.register{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.login a{
+.register a{
     text-decoration: none;
     color: white;
     background-color: #ac00ca;
@@ -51,7 +51,7 @@ nav ul li a:hover{
     text-align: center;
 }
 
-.login a:hover{
+.register a:hover{
     transition: .6s;
     scale: 1.1;
 }
