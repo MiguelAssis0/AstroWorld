@@ -1,4 +1,3 @@
-import { json } from "react-router-dom"
 import "../public/Cadaster.css"
 import { useStore } from "../store"
 
