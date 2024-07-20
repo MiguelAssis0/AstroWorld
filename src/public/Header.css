@@ -1,10 +1,17 @@
 header{
     padding: 20px 10px;
-    background-color:#7f2b70;
-    color: white;
+    background-color:white;
+    color: #ac00ca;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 0 10px 5px #ac00ca;
+    z-index: 10;
+    
+    width: 100%;
+    top: 0;
+    left: 0;
+    
 }
 
 header div,nav{
@@ -26,13 +33,14 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    color: white;
+    color: #ac00ca;
 
 }
 
 nav ul li a:hover{
     transition: .6s;
-    color: #ac00ca;
+    color: #6e1a5b;
+    font-size: 25px;
 }
 
 .register{

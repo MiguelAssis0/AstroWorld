@@ -22,7 +22,7 @@ export default function Init() {
                 <section className='cards'>
                     <div className='card'>
                         <div className='card__left-book'>
-                            <div className='left-book__image'>
+                            <div className='left-book__image'> 
                             </div>
                             <h3>Autor</h3>
                         </div>
