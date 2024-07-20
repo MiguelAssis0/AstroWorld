@@ -6,9 +6,9 @@ export default function Contact() {
 
     return (
         <>
-        <a href="/">
-            <FaLongArrowAltLeft />
-        </a>
+            <a href="/">
+                <FaLongArrowAltLeft />
+            </a>
             <div className="content-contact">
                 
                 <Footer />
