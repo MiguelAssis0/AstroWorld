@@ -4,6 +4,12 @@ import Pessoal from "./Pessoal"
 import "../public/Home.css"
 import { useState } from "react"
 
+const logout = () => {
+    useStore.getState().setLogin(false)
+    useStore.getState().setUser({})
+    window.location.reload()
+}
+
 export default function Home() {
     const [currentPage, setCurrentPage] = useState("Pessoal");
 
@@ -20,11 +26,6 @@ export default function Home() {
         }
     }
 
-    const logout = () => {
-        useStore.getState().setLogin(false)
-        useStore.getState().setUser({})
-        window.location.reload()
-    }
     return (
         <div className="content-home">
             <section className="content-home__sidebar">

@@ -1,5 +1,4 @@
-
-.content-pessoal{
+.content-pessoal {
     width: 100%;
     min-height: 100dvh;
     background-color: #f2f2f2;
@@ -7,18 +6,18 @@
     color: #2f2f2f;
 }
 
-.content-pessoal h1{
+.content-pessoal h1 {
     font-size: 30px;
 }
 
-.content-pessoal > p{
+.content-pessoal>p {
     font-size: 20px;
     text-align: justify;
     margin-top: 20px;
 }
 
-.content-pessoal__postsButton > span{
-    position:absolute;
+.content-pessoal__postsButton>span {
+    position: absolute;
     top: 0;
     right: 40px;
     font-size: 20px;
@@ -35,25 +34,25 @@
     cursor: pointer;
 }
 
-.content-pessoal__postsButton > span:hover{
+.content-pessoal__postsButton>span:hover {
     background-color: #7a1ccb;
     color: white;
     transition: .5s;
 
-    svg{
+    svg {
         color: white;
         transition: .5s;
     }
 
 }
 
-.content-pessoal__addNewPost{
+.content-pessoal__addNewPost {
     display: none;
     width: 80%;
     height: 80%;
     background-color: rgb(84, 50, 12);
     border-radius: 25px;
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -64,7 +63,7 @@
     justify-content: center;
 }
 
-.content-pessoal__addNewPost form{
+.content-pessoal__addNewPost form {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -73,7 +72,7 @@
     height: 100%;
 }
 
-.content-pessoal__left-page, .content-pessoal__right-page{
+.content-pessoal__left-page, .content-pessoal__right-page {
     width: 49%;
     margin: 2px;
     background-color: #f6f1cf;
@@ -84,17 +83,17 @@
     padding: 30px;
 }
 
-.content-pessoal__left-page input[type="file"]{
+.content-pessoal__left-page input[type="file"] {
     display: none;
 }
 
-.content-pessoal__left-page label{
+.content-pessoal__left-page label {
     width: 90%;
     height: 50%;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: white;
-    border:2px solid #ccc;
+    border: 2px solid #ccc;
     cursor: pointer;
     text-align: center;
     display: flex;
@@ -104,12 +103,12 @@
     transition: .5s;
 }
 
-.content-pessoal__left-page label:hover{
+.content-pessoal__left-page label:hover {
     border: 2px solid #2f2f2f;
     transition: .5s;
 }
 
-.content-pessoal input{
+.content-pessoal input {
     width: 90%;
     border: 2px solid #ccc;
     padding: 10px;
@@ -117,16 +116,16 @@
     margin: 10px;
 }
 
-.content-pessoal input:focus{
+.content-pessoal input:focus {
     outline: none;
 }
 
-.content-pessoal input:hover{
+.content-pessoal input:hover {
     border: 2px solid #2f2f2f;
     transition: .5s;
 }
 
-.content-pessoal textarea{
+.content-pessoal textarea {
     width: 90%;
     min-height: 200px;
     border: 2px solid #ccc;
@@ -135,16 +134,16 @@
     margin: 10px;
 }
 
-.content-pessoal textarea:focus{
+.content-pessoal textarea:focus {
     outline: none;
 }
 
-.content-pessoal textarea:hover{
+.content-pessoal textarea:hover {
     border: 2px solid #2f2f2f;
     transition: .5s;
 }
 
-.content-pessoal__right-page input[type="submit"]{
+.content-pessoal__right-page input[type="submit"] {
     border: none;
     background-color: #2f2f2f;
     color: white;
@@ -153,13 +152,13 @@
     cursor: pointer;
 }
 
-.content-pessoal__right-page input[type="submit"]:hover{
+.content-pessoal__right-page input[type="submit"]:hover {
     background-color: #464646;
     transition: .5s;
 }
 
 
-.black{
+.black {
     width: 100%;
     height: 100%;
     background-color: black;
@@ -171,18 +170,17 @@
     display: none;
 }
 
-.close{
+.close {
     margin: 20px;
     font-weight: bold;
     cursor: pointer;
     font-size: 20px;
-    position:absolute;
+    position: absolute;
     top: 20px;
     right: 25px;
 }
 
-.close:hover{
+.close:hover {
     color: red;
     transition: .5s;
 }
-

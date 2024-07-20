@@ -1,39 +1,33 @@
 import "../public/Login.css"
 import { useStore } from "../store"
 
-export default function Login() {
-
-    const login = async (event) => {
-        event.preventDefault()
-
-        const email = document.getElementById("email").value
-        const password = document.getElementById("password").value
-
-        if (!email || !password) return alert("Preencha todos os campos")
-        
-        try {
-            const response = await fetch("http://localhost:5000/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
+const login = async (event) => {
+    event.preventDefault()
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+    if (!email || !password) return alert("Preencha todos os campos")
+    try {
+        const response = await fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email,
+                password
             })
-
-            if (!response.ok) return alert("Email ou senha incorretos")
-            
-            const data = await response.json()
-            useStore.getState().setLogin(true)
-            useStore.getState().setUser(data)
-            window.location = "/"
-        } catch (error) {
-            console.log(error.message)
-        }
+        })
+        if (!response.ok) return alert("Email ou senha incorretos")
+        const data = await response.json()
+        useStore.getState().setLogin(true)
+        useStore.getState().setUser(data)
+        window.location = "/"
+    } catch (error) {
+        console.log(error.message)
     }
+}
 
+export default function Login() {    
     return(
         <div className="login">
             

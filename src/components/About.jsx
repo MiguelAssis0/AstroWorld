@@ -16,7 +16,7 @@ export default function About() {
                 <h2>Sobre mim</h2>
                 <p>
                     Me chamo Miguel, tenho 17 anos e estudo programação desde 2022. Estou fazendo técnico em Desenvolvimento de Sistemas
-                    e criei esse site para aprimorar minhas habilidades de programação. Espero que com esse projeto eu possa contribuir 
+                    e criei esse site para aprimorar minhas habilidades de programação. Espero que com esse projeto eu possa contribuir
                     para o universo da astronomia, promovendo a ciência no Brasil.
                 </p>
             </div>
