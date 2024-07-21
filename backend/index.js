@@ -62,7 +62,45 @@ app.post('/login', async (req, res) => {
     }
 })
 
-// Iniciar o servidor
+app.post('/addPost', async (req, res) => {
+    const { image, temperature ,title, content, user } = req.body;
+    if (!image || !title || !temperature || !content) return res.status(400).json({error: 'Preencha todos os campos'});
+    
+    const tempCelsius = processTemperature(temperature);
+    if (tempCelsius === null) 
+        return res.status(400).json({ error: 'Formato de temperatura inválido' });
+
+    try {
+        await pool.query("INSERT INTO celestial_objects(name, description, temperature, autor, photo) VALUES ($1, $2, $3, $4, $5)", [title, content, tempCelsius, user, image]);
+        res.status(200).json({
+            message: 'Post criado com sucesso!'
+        });
+    } catch (error) {
+        return res.status(500).json({error: 'Erro no servidor'});
+    }
+
+})
+
+function processTemperature(temperature) {
+    const celsiusRegex = /^-?\d+(\.\d+)?\s*º?C$/i;
+    const fahrenheitRegex = /^-?\d+(\.\d+)?\s*º?F$/i;
+    const kelvinRegex = /^-?\d+(\.\d+)?\s*K$/i;
+
+    if (celsiusRegex.test(temperature)) {
+        return parseFloat(temperature.replace(/º?C/i, '').trim());
+    } else if (fahrenheitRegex.test(temperature)) {
+        const tempValue = parseFloat(temperature.replace(/º?F/i, '').trim());
+        return (tempValue - 32) * 5 / 9;
+    } else if (kelvinRegex.test(temperature)) {
+        const tempValue = parseFloat(temperature.replace(/K/i, '').trim());
+        return tempValue - 273.15;
+    } else if (!isNaN(parseFloat(temperature))) {
+        return parseFloat(temperature);
+    } else {
+        return null;
+    }
+}
+
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
 });

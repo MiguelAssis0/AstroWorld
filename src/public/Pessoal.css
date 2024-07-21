@@ -87,15 +87,13 @@
     display: none;
 }
 
-.content-pessoal__left-page label {
+.content-pessoal__left-page #image {
     width: 90%;
-    height: 50%;
+    height: 10%;
     margin-top: 10px;
     margin-bottom: 20px;
     background-color: white;
     border: 2px solid #ccc;
-    cursor: pointer;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,14 +118,14 @@
     outline: none;
 }
 
-.content-pessoal input:hover {
+.content-pessoal input:hover, #image:hover {
     border: 2px solid #2f2f2f;
     transition: .5s;
 }
 
 .content-pessoal textarea {
     width: 90%;
-    min-height: 200px;
+    height: 80%;
     border: 2px solid #ccc;
     padding: 10px;
     border-radius: 10px;
