@@ -75,11 +75,35 @@ app.post('/addPost', async (req, res) => {
         res.status(200).json({
             message: 'Post criado com sucesso!'
         });
+        
     } catch (error) {
         return res.status(500).json({error: 'Erro no servidor'});
     }
-
 })
+
+app.delete(`/deletePost`, async (req, res) => {
+    const { id } = req.body;
+    try {
+        await pool.query("DELETE FROM celestial_objects WHERE id = $1", [id]);
+        res.status(200).json({
+            message: 'Post deletado com sucesso!'
+        });
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({error: 'Erro no servidor'});
+    }
+})
+
+app.post(`/posts`, async (req, res) => {
+    try {
+        const { user } = req.body;
+        const response = await pool.query('SELECT * FROM celestial_objects WHERE autor = $1 ORDER BY id DESC', [user]);
+        res.status(200).json(response.rows);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message }); 
+    }
+});
 
 function processTemperature(temperature) {
     const celsiusRegex = /^-?\d+(\.\d+)?\s*º?C$/i;
@@ -100,6 +124,16 @@ function processTemperature(temperature) {
         return null;
     }
 }
+
+app.get('/postsExplore', async (req, res) => {
+    try {
+        const response = await pool.query('SELECT * FROM celestial_objects ORDER BY id DESC');
+        res.status(200).json(response.rows);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message }); 
+    }
+});
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);

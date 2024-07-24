@@ -1,5 +1,7 @@
 import { useStore } from "../store"
 import "../public/Pessoal.css"
+import { useEffect, useState } from "react"
+import Card from "./Card"
 
 const close = () => {
     const addNewPost = document.querySelector(".content-pessoal__addNewPost")
@@ -50,10 +52,32 @@ const addPost = async (e) => {
     } catch (error) {
         console.log(error.message);
     }
-
 }
 
 export default function Pessoal() {
+    const [posts, setPosts] = useState([])
+    const getPosts = async () => {
+        try {
+            const user = useStore.getState().user.user.user_id
+            const response = await fetch(`http://localhost:5000/posts`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({user})
+            });
+            const jsonData = await response.json();
+
+            setPosts(jsonData);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    useEffect(() => {
+        getPosts();
+    }, []);
+
     return (
         <div className="content-pessoal">
             <h1>Olá {useStore.getState().user.user.username}, seja bem-vindo!</h1>
@@ -104,10 +128,9 @@ export default function Pessoal() {
                     </div>
                 </form>
             </div>
-            <div className="content-pessoal__view-posts">
-                
-            </div>
-            <div className="black"></div>
+            
+            <Card posts={posts} />
+     
         </div>
     )
 }

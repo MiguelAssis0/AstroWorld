@@ -1,0 +1,16 @@
+form{
+    display: flex;
+    width: 100%;
+    margin: 20px 10px;
+    justify-content: center;
+}
+
+input{
+    width: 80%;
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    padding-left: 10px;
+    font-size: 20px;
+}

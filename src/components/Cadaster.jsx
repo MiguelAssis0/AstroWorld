@@ -1,6 +1,6 @@
 import "../public/Cadaster.css"
 import { useStore } from "../store"
-
+console
 const cadaster = async (e) => {
     e.preventDefault()
     const username = document.getElementById("Iusername").value
