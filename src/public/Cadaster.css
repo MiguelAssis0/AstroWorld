@@ -43,6 +43,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    height: 50px;
 }
 
 .cadaster form input[type="submit"]:hover{
@@ -50,3 +51,12 @@
     transition: .5s;
 }
 
+@media screen and (max-width: 800px){
+    .cadaster form{
+        width: 80%;
+    }
+
+    .cadaster form input{
+        width: 90%;
+    }
+}

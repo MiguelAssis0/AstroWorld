@@ -1,9 +1,25 @@
+import { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer';
 import "../public/Header.css";
-import "../public/Init.css";
+import "../public/Init.css"; 
+
+
 
 export default function Init() {
+    const [threePost, setThreePost] = useState([]);
+
+    const getThreePosts = async () =>{
+        const response = await fetch('http://localhost:5000/postsThree');
+        const jsonData = await response.json();
+        setThreePost(jsonData);
+    }
+
+    useEffect(() => {
+        getThreePosts();
+    }, [])
+
+
     return(
         <>
             <Header />
@@ -20,44 +36,24 @@ export default function Init() {
                     <a href="/about">Ler mais...</a>
                 </section>
                 <section className='cards'>
-                    <div className='card'>
-                        <div className='card__left-book'>
-                            <div className='left-book__image'> 
+                    {threePost.map((post) => {
+                        return (
+                            <div className='card' key={post.id}>
+                                <div className='card__left-book'>
+                                    <div className='left-book__image'>
+                                        <img src={post.photo} alt="" />
+                                    </div>
+                                    <p>{post.temperature}ºC</p>
+                                </div>
+                                <div className='card__right-book'>
+                                    <h1>{post.name}</h1>
+                                    <p>{post.description.length > 50 ? post.description.substring(0, 64) + "..." : post.description}</p>
+                                    <a href="/cadaster">Ver mais</a>
+                                </div>
                             </div>
-                            <h3>Autor</h3>
-                        </div>
-                        <div className='card__right-book'>
-                            <h1>Name</h1>
-                            <p>description</p>
-                            <a href="#">Ver mais</a>
-                        </div>
-                    </div>
-
-                    <div className='card'>
-                        <div className='card__left-book'>
-                            <div className='left-book__image'>
-                            </div>
-                            <h3>Autor</h3>
-                        </div>
-                        <div className='card__right-book'>
-                            <h1>Name</h1>
-                            <p>description</p>
-                            <a href="#">Ver mais</a>
-                        </div>
-                    </div>
-
-                    <div className='card'>
-                        <div className='card__left-book'>
-                            <div className='left-book__image'>
-                            </div>
-                            <h3>Autor</h3>
-                        </div>
-                        <div className='card__right-book'>
-                            <h1>Name</h1>
-                            <p>description</p>
-                            <a href="#">Ver mais</a>
-                        </div>
-                    </div>
+                        )
+                    })}
+                   
                     
                     
                 </section>

@@ -1,9 +1,8 @@
 .content-pessoal {
     width: 100%;
     min-height: 100dvh;
-    background-color: #f2f2f2;
     padding: 20px;
-    color: #2f2f2f;
+    color: white;
     position: relative;
 }
 
@@ -28,6 +27,8 @@
     display: flex;
     justify-content: center;
     box-shadow: 3px 3px 10px 0px #ccc;
+    background-color: white;
+    color: #7a1ccb;
     align-items: center;
     padding: 10px 20px;
     border-radius: 10px;
@@ -51,7 +52,7 @@
     display: none;
     width: 80%;
     height: 80%;
-    background-color: rgb(84, 50, 12);
+    background-color: rgb(65, 51, 51);
     border-radius: 25px;
 
     position: absolute;
@@ -70,7 +71,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 94%;
 }
 
 .content-pessoal__left-page, .content-pessoal__right-page {
@@ -82,10 +83,6 @@
     align-items: center;
     height: 100%;
     padding: 30px;
-}
-
-.content-pessoal__left-page input[type="file"] {
-    display: none;
 }
 
 .content-pessoal__left-page #image {
@@ -102,10 +99,6 @@
     transition: .5s;
 }
 
-.content-pessoal__left-page label:hover {
-    border: 2px solid #2f2f2f;
-    transition: .5s;
-}
 
 .content-pessoal input {
     width: 90%;
@@ -162,18 +155,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     padding: 20px;
     color: #2f2f2f;
 }
 
 .content-pessoal__post{
-    width: 30%;
+    width: 350px;
     height: 100%;
     margin:5px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     color: #2f2f2f;
     border: 2px solid #ccc;
     background-color: white;
@@ -207,6 +201,7 @@
 
 .content-pessoal__post p{
     text-align: center;
+    padding: 10px 0;
     width: 100%;
 }
 
@@ -215,8 +210,14 @@
     background-color: #2f2f2f;
     color: white;
     padding: 10px 0;
-    width: 100%;
+    width: 80%;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.content-pessoal__post button:hover{
+    background-color: #464646;
+    transition: .5s;
 }
 
 .postsInfo{
@@ -224,7 +225,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 100%; 
     height: 100%;
     z-index: 10;
 }
@@ -291,6 +292,16 @@
     text-align: justify;
 }
 
+.readMore .temperature{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #7a1ccb;
+    color: white;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 
 .black {
@@ -308,6 +319,7 @@
 .close {
     margin: 20px;
     font-weight: bold;
+    color: #2f2f2f;
     cursor: pointer;
     font-size: 20px;
     position: absolute;
@@ -322,6 +334,7 @@
 
 .del{
     position: relative !important;
+    display: block !important;
     margin: 0 !important;
     padding: 0 !important;
     font-size: 15px !important;
@@ -334,6 +347,7 @@
     transition: .5s;
 }
 
+
 article{
     display: flex;
     align-items: center;
@@ -343,3 +357,85 @@ article{
     height: 100%;
 }
 
+@media screen and (max-width: 1000px){
+    .content-pessoal__addNewPost{
+        width: 98%;
+        top: 40%;
+    }
+
+    .content-pessoal__addNewPost form{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content-pessoal__addNewPost form textarea{
+        width: 100%;    
+    }
+
+    .content-pessoal__addNewPost form button{
+        width: 100%;
+    }
+
+    .content-pessoal__left-page, .content-pessoal__right-page{
+        width: 100%;
+        margin: 2px;
+    }
+
+    .content-pessoal__postsButton>span{
+       position: relative;
+       width: 100%;
+       right: 0;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .readMore{
+        left: 0;
+        width: 98%;
+        margin-left: 1%;
+        top: -11%;
+        padding: 0;
+    }
+
+    .readMore > div{
+        padding: 0 0 10px 0;
+        margin-top: -60%;
+    }
+
+    .readMore > div span{
+        font-size: 20px;
+    }
+
+    .readMore > div h3{
+        padding: 0;
+    }
+
+    .readMore img{
+        border-radius: 0;
+    }
+
+    .content-pessoal__post{
+        width: 320px;
+        margin-bottom: 20px;
+    }
+    
+    .content-pessoal{
+        flex-direction: row;
+    }
+   
+    .content-pessoal__addNewPost{
+        width: 98%;
+        top: 25%;
+    }
+
+   
+    
+}
+
+@media screen and (max-width: 500px){
+    
+    .content-pessoal__post{
+        width: 100%;
+        margin: 20px 0;
+    }
+}

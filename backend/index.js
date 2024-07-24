@@ -21,7 +21,6 @@ const pool = new Pool({
     port: 5432,
 });
 
-// Rota para cadastrar um novo usuário
 app.post('/cadaster', async (req, res) => {
     const { username, email, password } = req.body;
     if (!username || !email || !password) return res.status(400).json({error: 'Preencha todos os campos'});
@@ -35,8 +34,13 @@ app.post('/cadaster', async (req, res) => {
         const queryText = 'INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3)';
         const queryValues = [username, email, password];
         await pool.query(queryText, queryValues);
-        res.status(201).json({
-            user: req.body
+        
+        const querySelect = 'SELECT * FROM users WHERE email = $1 AND password_hash = $2';
+        const queryValuesSelect = [email, password];
+        const result = await pool.query(querySelect, queryValuesSelect);
+        if (result.rowCount === 0) return res.status(400).json({error: 'Email ou senha incorretos'});
+        res.status(200).json({
+            user: result.rows[0]
         });
 
     } catch (error) {
@@ -71,7 +75,7 @@ app.post('/addPost', async (req, res) => {
         return res.status(400).json({ error: 'Formato de temperatura inválido' });
 
     try {
-        await pool.query("INSERT INTO celestial_objects(name, description, temperature, autor, photo) VALUES ($1, $2, $3, $4, $5)", [title, content, tempCelsius, user, image]);
+        await pool.query("INSERT INTO celestial_objects(name, description, temperature, autor, photo) VALUES ($1, $2, $3, $4, $5)", [title.toUpperCase(), content, tempCelsius, user, image]);
         res.status(200).json({
             message: 'Post criado com sucesso!'
         });
@@ -128,6 +132,28 @@ function processTemperature(temperature) {
 app.get('/postsExplore', async (req, res) => {
     try {
         const response = await pool.query('SELECT * FROM celestial_objects ORDER BY id DESC');
+        res.status(200).json(response.rows);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message }); 
+    }
+});
+
+app.post('/postsSearch', async (req, res) => {
+    const { search } = req.body;
+    if(!search) return;
+    try {
+        const response = await pool.query('SELECT * FROM celestial_objects WHERE name LIKE $1', [`%${search.toUpperCase()}%`]);
+        res.status(200).json(response.rows);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message });
+    }
+})
+
+app.get('/postsThree', async (req, res) => {
+    try {
+        const response = await pool.query('SELECT * FROM celestial_objects ORDER BY id DESC LIMIT 3');
         res.status(200).json(response.rows);
     } catch (error) {
         console.log(error.message);

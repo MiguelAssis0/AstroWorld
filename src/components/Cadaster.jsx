@@ -1,6 +1,7 @@
 import "../public/Cadaster.css"
 import { useStore } from "../store"
-console
+
+
 const cadaster = async (e) => {
     e.preventDefault()
     const username = document.getElementById("Iusername").value
@@ -24,11 +25,11 @@ const cadaster = async (e) => {
             return response.json().then(data => alert(data.error))
         }
         const data = await response.json()
-        await useStore.getState().setLogin(true)
-        await useStore.getState().setUser(data)
-        window.location.href = "/"
+        useStore.getState().setLogin(true)
+        useStore.getState().setUser(data)
+        window.location = "/" 
     } catch (err) {
-        console.log(err)
+        alert(err.message)
     }
 }
 

@@ -50,3 +50,17 @@
     transition: .5s;
     background-color: #6e1a5b;
 }
+
+@media screen and (max-width: 800px){
+    .login form{
+        width: 80%;
+    }
+
+    .login form input{
+        width: 90%;
+    }
+
+    .login form input[type="submit"]{
+        width: 90%;
+    }
+}

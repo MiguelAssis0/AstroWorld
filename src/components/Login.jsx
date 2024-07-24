@@ -23,7 +23,7 @@ const login = async (event) => {
         useStore.getState().setUser(data)
         window.location = "/"
     } catch (error) {
-        console.log(error.message)
+        alert(error.message)
     }
 }
 

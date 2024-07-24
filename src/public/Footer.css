@@ -61,3 +61,15 @@ footer{
     cursor: pointer;
     background-color: #9d4edd;
 }
+
+@media screen and (max-width: 800px){
+    .contact{
+        width: 100%;
+    }
+
+    .contact form{
+        width: 100%;
+        margin-left: 0;
+    }   
+
+}

@@ -2,7 +2,7 @@ import { useStore } from "../store"
 import Explore from "./Explore"
 import Pessoal from "./Pessoal"
 import "../public/Home.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const logout = () => {
     useStore.getState().setLogin(false)
@@ -15,6 +15,16 @@ export default function Home() {
 
     const PageChange = (e)=>{
         setCurrentPage(e.target.id);
+        const btnPessoal = document.getElementById("Pessoal")
+        const btnExplore = document.getElementById("Explore")
+
+        if(e.target.id === "Pessoal"){
+            btnPessoal.classList.add("active")
+            btnExplore.classList.remove("active")
+        }else{
+            btnPessoal.classList.remove("active")
+            btnExplore.classList.add("active")
+        }
     }
 
     const renderCurrentPage = () =>{
@@ -25,6 +35,10 @@ export default function Home() {
                 return <Explore/>
         }
     }
+
+    useEffect(() => {
+        PageChange({target: {id: "Pessoal"}})
+    }, [])
 
     return (
         <div className="content-home">
@@ -38,7 +52,7 @@ export default function Home() {
             <section className="content-home__main">
                 {renderCurrentPage()}
             </section>
-            
+           
         </div>
     )
 }

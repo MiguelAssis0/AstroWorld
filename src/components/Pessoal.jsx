@@ -50,7 +50,7 @@ const addPost = async (e) => {
         post.content = ""
         window.location.reload()
     } catch (error) {
-        console.log(error.message);
+        alert(error.message)
     }
 }
 
@@ -70,7 +70,7 @@ export default function Pessoal() {
 
             setPosts(jsonData);
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     }
 
@@ -129,8 +129,7 @@ export default function Pessoal() {
                 </form>
             </div>
             
-            <Card posts={posts} />
-     
+            <Card posts={posts} verify={1} />
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import { MdDeleteOutline } from "react-icons/md";
 
 const readMore = (id) => {
-    console.log(id)
     const rM = document.getElementsByClassName(`${id}`)
     const black = document.querySelector(".black")
     black.style.display = "block"
@@ -17,7 +16,6 @@ function closeReadMore(id) {
 
 const deletePost = async (id) => {
     try {
-        console.log(id)
         const response = await fetch(`http://localhost:5000/deletePost`, {
             method: 'DELETE',
             headers: {
@@ -28,11 +26,12 @@ const deletePost = async (id) => {
         if (!response.ok) return alert("Falha ao deletar o post, por favor tente novamente em alguns minutos")
         window.location.reload()
     } catch (error) {
-        console.log(error.message);
+        alert(error.message);
     }
 }
 
-export default function Card(props) {
+export default function Card(props) { 
+
     return (
         <div>
             <div className="content-pessoal__view-posts">
@@ -42,10 +41,10 @@ export default function Card(props) {
                             <img src={post.photo} alt="" />
                             <div>
                                 <h3>{post.name}</h3>
+                                <span className="temperature">Temperatura: {post.temperature}ºC</span>
                                 <p>{post.description.length > 100 ? post.description.substring(0, 150) + "..." : post.description}</p>
-
-                                <article>
-                                    <button id={post.id} onClick={() => readMore(post.id)}>Ler mais</button>
+                                <article className="options">
+                                    <button id={post.id} onClick={() => readMore(post.id)}>Ler mais</button>    
                                     <MdDeleteOutline className="del" onClick={() => deletePost(post.id)} />
                                 </article>
                             </div>
@@ -60,15 +59,16 @@ export default function Card(props) {
                             <div>
                                 <span className="close" style={{ zIndex: "1" }} onClick={() => closeReadMore(post.id)}>X</span>
                                 <h3>{post.name}</h3>
+                        
                             </div>
 
                             <img src={post.photo} alt="" />
-
+                            <span className="temperature">Temperatura: {post.temperature}ºC</span>
                             <p>{post.description}</p>
                         </div>
                     )
                 })}
-            </section>
+            </section> 
             <div className="black"></div>
         </div>
     )
