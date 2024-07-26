@@ -17,23 +17,18 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        {!useStore.getState().Login ?
-          <Routes>
-            <Route path="/" element={<Init />} />
-
-          </Routes>
-          :
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        }
         <Routes>
-        <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadaster" element={<Cadaster />} />
-        </Routes>
+          {!useStore.getState().Login ?
+            <Route path="/" element={<About />} />
+            :
+            <Route path="/" element={<Home />} />
+          }
 
+          <Route path="/about" element={<Init />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadaster" element={<Cadaster />} />
+        </Routes>
       </Router>
     </div>
   )
