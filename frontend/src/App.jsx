@@ -20,17 +20,19 @@ export default function App() {
         {!useStore.getState().Login ?
           <Routes>
             <Route path="/" element={<Init />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadaster" element={<Cadaster />} />
+
           </Routes>
           :
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
-
         }
+        <Routes>
+        <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadaster" element={<Cadaster />} />
+        </Routes>
 
       </Router>
     </div>
