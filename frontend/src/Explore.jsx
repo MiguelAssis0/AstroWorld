@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import "../public/Explore.css"
-import "../public/Pessoal.css"
+import "./public/Explore.css"
+import "./public/Pessoal.css"
 
 
 const readMore = (id) => {

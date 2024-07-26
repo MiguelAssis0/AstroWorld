@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer';
-import "../public/Header.css";
-import "../public/Init.css"; 
+import "./public/Header.css";
+import "./public/Init.css"; 
 
 
 

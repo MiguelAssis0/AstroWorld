@@ -1,5 +1,5 @@
-import "../public/Cadaster.css"
-import { useStore } from "../store"
+import "./public/Cadaster.css"
+import { useStore } from "./store"
 
 
 const cadaster = async (e) => {

@@ -1,7 +1,7 @@
-import { useStore } from "../store"
+import { useStore } from "./store"
 import Explore from "./Explore"
 import Pessoal from "./Pessoal"
-import "../public/Home.css"
+import "./public/Home.css"
 import { useEffect, useState } from "react"
 
 const logout = () => {

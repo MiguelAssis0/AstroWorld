@@ -1,5 +1,5 @@
-import "../public/Login.css"
-import { useStore } from "../store"
+import "./public/Login.css"
+import { useStore } from "./store"
 
 const login = async (event) => {
     event.preventDefault()

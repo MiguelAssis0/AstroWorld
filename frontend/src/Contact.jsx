@@ -1,5 +1,5 @@
 import Footer from "./Footer"
-import "../public/Contact.css"
+import "./public/Contact.css"
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
 export default function Contact() {

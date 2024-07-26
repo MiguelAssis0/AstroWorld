@@ -1,5 +1,5 @@
 import Header from "./Header"
-import "../public/About.css"
+import "./assets/About.css"
 import Footer from "./Footer"
 
 export default function About() {
