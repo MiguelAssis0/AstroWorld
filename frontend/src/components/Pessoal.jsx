@@ -1,5 +1,5 @@
-import { useStore } from "./store"
-import "./public/Pessoal.css"
+import { useStore } from "../store"
+import "../public/Pessoal.css"
 import { useEffect, useState } from "react"
 import Card from "./Card"
 
