@@ -10,7 +10,7 @@ export default function Init() {
     const [threePost, setThreePost] = useState([]);
 
     const getThreePosts = async () =>{
-        const response = await fetch('http://localhost:5000/postsThree');
+        const response = await fetch('https://backend-delta-wheat.vercel.app/postsThree');
         const jsonData = await response.json();
         setThreePost(jsonData);
     }

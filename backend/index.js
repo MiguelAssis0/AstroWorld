@@ -14,12 +14,19 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configuração do PostgreSQL
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'AstroWorld',
-    password: 'admin',
-    port: 5432,
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT_DB,
+    ssl:{
+        rejectUnauthorized: false,
+    }
 });
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+})
 
 app.post('/cadaster', async (req, res) => {
     const { username, email, password } = req.body;

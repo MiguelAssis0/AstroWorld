@@ -22,7 +22,7 @@ export default function Explore() {
 
     const getPosts = async (e) => {
         try {
-            const response = await fetch(`http://localhost:5000/postsExplore`);
+            const response = await fetch(`https://backend-delta-wheat.vercel.app/postsExplore`);
             const jsonData = await response.json();
             setPosts(jsonData);
         } catch (error) {
@@ -33,7 +33,7 @@ export default function Explore() {
         if (search) {
             try {
                 e.preventDefault();
-                const response = await fetch(`http://localhost:5000/postsSearch`, {
+                const response = await fetch(`https://backend-delta-wheat.vercel.app/postsSearch`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

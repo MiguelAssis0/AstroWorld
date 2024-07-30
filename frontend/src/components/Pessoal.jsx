@@ -35,7 +35,7 @@ const addPost = async (e) => {
             user: user
         }
 
-        const response = await fetch('http://localhost:5000/addPost', {
+        const response = await fetch('https://backend-delta-wheat.vercel.app/addPost', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export default function Pessoal() {
     const getPosts = async () => {
         try {
             const user = useStore.getState().user.user.user_id
-            const response = await fetch(`http://localhost:5000/posts`,{
+            const response = await fetch(`https://backend-delta-wheat.vercel.app/posts`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

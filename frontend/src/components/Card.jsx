@@ -16,7 +16,7 @@ function closeReadMore(id) {
 
 const deletePost = async (id) => {
     try {
-        const response = await fetch(`http://localhost:5000/deletePost`, {
+        const response = await fetch(`https://backend-delta-wheat.vercel.app/deletePost`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

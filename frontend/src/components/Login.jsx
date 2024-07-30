@@ -7,7 +7,7 @@ const login = async (event) => {
     const password = document.getElementById("password").value
     if (!email || !password) return alert("Preencha todos os campos")
     try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch("https://backend-delta-wheat.vercel.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

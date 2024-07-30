@@ -14,7 +14,7 @@ const cadaster = async (e) => {
         password: password
     }
     try {
-        const response = await fetch("http://localhost:5000/cadaster", {
+        const response = await fetch("https://backend-delta-wheat.vercel.app", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
