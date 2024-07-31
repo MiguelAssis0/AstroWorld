@@ -3,30 +3,23 @@ const cors = require('cors');
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Configuração do Express
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configuração do PostgreSQL
 const pool = new Pool({
-    user: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
     port: process.env.PORT_DB,
     ssl:{
-        rejectUnauthorized: false,
+        rejectUnauthorized: false
     }
 });
-
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-})
 
 app.post('/cadaster', async (req, res) => {
     const { username, email, password } = req.body;
