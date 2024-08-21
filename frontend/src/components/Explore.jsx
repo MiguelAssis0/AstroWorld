@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import "../public/Explore.css"
 import "../public/Pessoal.css"
+import { API_URL } from "./Api";
+import axios from 'axios';
 
 
 const readMore = (id) => {
@@ -21,33 +23,30 @@ export default function Explore() {
     const [posts, setPosts] = useState([])
 
     const getPosts = async (e) => {
+        if (e) e.preventDefault();
+    
         try {
-            const response = await fetch(`https://backend-delta-wheat.vercel.app/postsExplore`);
-            const jsonData = await response.json();
+            const search = document.querySelector('#search').value;
+            let response;
+    
+            if (search) {
+                response = await axios.post(`${API_URL}/postsSearch`, 
+                    { search },
+                    {
+                      headers: {
+                        'Content-Type': 'application/json'
+                      }
+                    }
+                );
+            } else {
+                response = await axios.get(`${API_URL}/postsExplore`);
+            }
+            const jsonData = response.data;
             setPosts(jsonData);
         } catch (error) {
             alert(error.message);
         }
-        
-        const search = document.querySelector('#search').value
-        if (search) {
-            try {
-                e.preventDefault();
-                const response = await fetch(`https://backend-delta-wheat.vercel.app/postsSearch`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ search })
-                });
-                const jsonData = await response.json();
-
-                setPosts(jsonData);
-            } catch (error) {
-                alert(error.message);
-            }
-        }
-    }
+    };
 
     useEffect(() => {
         getPosts();

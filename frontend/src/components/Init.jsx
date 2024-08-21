@@ -3,18 +3,23 @@ import Header from './Header'
 import Footer from './Footer';
 import "../public/Header.css";
 import "../public/Init.css"; 
+import { API_URL } from './Api';
+import axios from 'axios';
 
 
 
 export default function Init() {
     const [threePost, setThreePost] = useState([]);
 
-    const getThreePosts = async () =>{
-        const response = await fetch('https://backend-delta-wheat.vercel.app/postsThree');
-        const jsonData = await response.json();
-        setThreePost(jsonData);
-    }
-
+    const getThreePosts = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/postsThree`);
+            const jsonData = response.data;  
+            setThreePost(jsonData);
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+        }
+    };
     useEffect(() => {
         getThreePosts();
     }, [])

@@ -1,4 +1,6 @@
 import { MdDeleteOutline } from "react-icons/md";
+import { API_URL } from "./Api";
+import axios from 'axios';
 
 const readMore = (id) => {
     const rM = document.getElementsByClassName(`${id}`)
@@ -16,14 +18,13 @@ function closeReadMore(id) {
 
 const deletePost = async (id) => {
     try {
-        const response = await fetch(`https://backend-delta-wheat.vercel.app/deletePost`, {
-            method: 'DELETE',
+        const response = await axios.delete(`${API_URL}/deletePost`, {
             headers: {
-                'Content-Type': 'application/json'
+              'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id})
-        })
-        if (!response.ok) return alert("Falha ao deletar o post, por favor tente novamente em alguns minutos")
+            data: { id } 
+          });
+        if (response.status !== 200) return alert("Falha ao deletar o post, por favor tente novamente em alguns minutos")
         window.location.reload()
     } catch (error) {
         alert(error.message);
