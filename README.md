@@ -31,19 +31,19 @@ Para testar o projeto localmente, siga estas etapas:
    - Abra o projeto em um editor de código, como Visual Studio Code.
    - Abra um terminal de comando e navegue para o diretório do backend:
 
-    cd backend
+   - cd backend
 
    - instale as dependências e inicie o servidor com:
-    npm i nodemon
-    nodemon index.js
+   - npm i nodemon
+   - nodemon index.js
 
 4. **Configure o Frontend**
    - Abra um segundo terminal de comando e navegue para o diretório do frontend:
 
-    cd frontend
+   - cd frontend
 
    - Inicie o servidor com:
-    npm run dev
+   - npm run dev
 
 5. **Acesse o Projeto:**
    - Após iniciar o frontend, um link será exibido no terminal. Clique neste link ou copie e cole-o em seu navegador para acessar o site
