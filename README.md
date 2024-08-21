@@ -28,17 +28,17 @@ Para testar o projeto localmente, siga estas etapas:
    git clone [https://github.com/seu-usuario/astroworld.git](https://github.com/MiguelAssis0/AstroWorld.git)
 
 3. **Configure o Backend:**
-   -Abra o projeto em um editor de código, como Visual Studio Code.
-   -Abra um terminal de comando e navegue para o diretório do backend:
+   - Abra o projeto em um editor de código, como Visual Studio Code.
+   - Abra um terminal de comando e navegue para o diretório do backend:
 
    cd backend
 
-   -instale as dependências e inicie o servidor com:
+   - instale as dependências e inicie o servidor com:
    npm i nodemon
    nodemon index.js
 
 4. **Configure o Frontend**
-   -Abra um segundo terminal de comando e navegue para o diretório do frontend:
+   - Abra um segundo terminal de comando e navegue para o diretório do frontend:
 
    cd frontend
 
@@ -46,7 +46,7 @@ Para testar o projeto localmente, siga estas etapas:
    npm run dev
 
 5. **Acesse o Projeto:**
-   -Após iniciar o frontend, um link será exibido no terminal. Clique neste link ou copie e cole-o em seu navegador para acessar o site
+   - Após iniciar o frontend, um link será exibido no terminal. Clique neste link ou copie e cole-o em seu navegador para acessar o site
 
 6. **Licença**
    Esse projeto está licenciado sob a Licença MIT
