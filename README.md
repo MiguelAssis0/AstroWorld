@@ -45,6 +45,16 @@ Para testar o projeto localmente, siga estas etapas:
    - Inicie o servidor com:
    - npm run dev
 
+5. **Configure o Banco de dados**
+   -Crie um banco de dados local ou remoto, e coloque as informações em um arquivo .env em AstroWorld/backend da seguinte forma:
+       PGHOST=o host do banco de dados
+       PGDATABASE=o nome da database
+       PGUSER=o nome do user
+       PGPASSWORD=o password
+       ENDPOINT_ID=endpoint da database
+       PORT_DB = porta em que a database está rodando
+       PORT = rota que o projeto backend irá iniciar
+   
 5. **Acesse o Projeto:**
    - Após iniciar o frontend, um link será exibido no terminal. Clique neste link ou copie e cole-o em seu navegador para acessar o site
 
