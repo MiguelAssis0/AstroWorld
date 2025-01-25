@@ -34,8 +34,8 @@ Para testar o projeto localmente, siga estas etapas:
    - cd backend
 
    - instale as dependências e inicie o servidor com:
-   - npm i nodemon
-   - nodemon index.js
+   - npm install 
+   - node index.js
 
 4. **Configure o Frontend**
    - Abra um segundo terminal de comando e navegue para o diretório do frontend:
@@ -43,6 +43,7 @@ Para testar o projeto localmente, siga estas etapas:
    - cd frontend
 
    - Inicie o servidor com:
+   - npm install 
    - npm run dev
 
 5. **Configure o Banco de dados**
